@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/")
 
-;; turn on font-lock mode
+;; font-lock mode enables syntax highlighting
 (global-font-lock-mode 1)
 
 ;; enable visual feedback on selections
@@ -9,11 +9,19 @@
 ;; default to better frame titles
 (setq frame-title-format (concat  "%b - emacs@" system-name))
 
-;; color theme stuff
+;; color theme: http://download.gna.org/color-theme/color-theme-6.6.0.tar.gz
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
-(color-theme-initialize)
 (color-theme-billw)
+
+;; mako minor mode: https://bitbucket.org/pjenvey/mmm-mako/src
+;; requires mmm: http://sourceforge.net/projects/mmm-mode/files/
+(add-to-list 'load-path "~/.emacs.d/mmm-mode-0.4.8")
+(require 'mmm-mode)
+(add-to-list 'load-path "~/.emacs.d/mmm-mako")
+(require 'mmm-mako)
+(add-to-list 'auto-mode-alist '("\\.mako\\'" . html-mode))
+(mmm-add-mode-ext-class 'html-mode "\\.mako\\'" 'mako)
 
 ;; GUIs are for b*tches
 (tool-bar-mode nil)
@@ -32,7 +40,7 @@
 (global-set-key "\M-q" 'query-replace)
 (global-set-key "\M-1" 'revert-buffer)
 
-;; Scroll line by line
+;; scroll line by line
 (setq scroll-step 1)
 
 ;; show time
