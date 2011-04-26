@@ -64,3 +64,14 @@
 (setq compilation-scroll-output 1)   ;; automatically scroll the compilation window
 (setq compilation-window-height 10)
 
+;; emacs and the clipboard should play nice
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
+;; inconsolata font (this sometimes doesn't work...)
+(set-default-font "Inconsolata-13")
+
+;; git stuff that comes w/ git installation
+(add-to-list 'load-path "/usr/share/doc/git-core/contrib/emacs")
+(require 'git)
+(require 'git-blame)
