@@ -71,7 +71,5 @@
 ;; inconsolata font (this sometimes doesn't work...)
 (set-default-font "Inconsolata-13")
 
-;; git stuff that comes w/ git installation
-(add-to-list 'load-path "/usr/share/doc/git-core/contrib/emacs")
-(require 'git)
-(require 'git-blame)
+;; don't wrap long lines onto new lines
+(set-default 'truncate-lines t)
