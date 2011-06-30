@@ -12,6 +12,7 @@
 ;; color theme: http://download.gna.org/color-theme/color-theme-6.6.0.tar.gz
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
+(color-theme-initialize)
 (color-theme-billw)
 
 ;; mako minor mode: https://bitbucket.org/pjenvey/mmm-mako/src
@@ -73,3 +74,11 @@
 
 ;; don't wrap long lines onto new lines
 (set-default 'truncate-lines t)
+
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
+
+;; if you want to be really hardcore
+;;(require 'drill-instructor)
+;;(setq drill-instructor-global t)
