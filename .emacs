@@ -38,6 +38,8 @@
 (global-set-key "\M-\`" 'ff-find-other-file)
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-x\C-k" 'compile)
+(global-set-key "\C-c\C-c" 'comment-region)
+(global-set-key "\C-c\C-x" 'uncomment-region)
 (global-set-key "\M-q" 'query-replace)
 (global-set-key "\M-1" 'revert-buffer)
 
