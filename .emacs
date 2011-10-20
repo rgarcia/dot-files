@@ -15,15 +15,6 @@
 (color-theme-initialize)
 (color-theme-billw)
 
-;; mako minor mode: https://bitbucket.org/pjenvey/mmm-mako/src
-;; requires mmm: http://sourceforge.net/projects/mmm-mode/files/
-(add-to-list 'load-path "~/.emacs.d/mmm-mode-0.4.8")
-(require 'mmm-mode)
-(add-to-list 'load-path "~/.emacs.d/mmm-mako")
-(require 'mmm-mako)
-(add-to-list 'auto-mode-alist '("\\.mako\\'" . html-mode))
-(mmm-add-mode-ext-class 'html-mode "\\.mako\\'" 'mako)
-
 ;; GUIs are for b*tches
 (tool-bar-mode nil)
 (menu-bar-mode nil)
