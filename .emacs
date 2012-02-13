@@ -16,7 +16,7 @@
 (color-theme-billw)
 
 ;; GUIs are for b*tches
-(tool-bar-mode nil)
+(tool-bar-mode 0)
 (menu-bar-mode nil)
 (scroll-bar-mode nil)
 
@@ -63,11 +63,12 @@
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 ;; inconsolata font (this sometimes doesn't work...)
-(set-default-font "Inconsolata-13")
+(set-default-font "Inconsolata-14")
 
 ;; don't wrap long lines onto new lines
 (set-default 'truncate-lines t)
 
+;; say no to unecessary whitespace
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
@@ -75,3 +76,22 @@
 ;; if you want to be really hardcore
 ;;(require 'drill-instructor)
 ;;(setq drill-instructor-global t)
+
+(setq js-indent-level 2)
+(setq-default indent-tabs-mode nil)
+
+;; coffee-mode: https://github.com/defunkt/coffee-mode
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
+(require 'coffee-mode)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+(defun coffee-custom ()
+  "coffee-mode-hook"
+ (set (make-local-variable 'tab-width) 2))
+(add-hook 'coffee-mode-hook
+  '(lambda() (coffee-custom)))
+
+;; less css mode: https://github.com/purcell/less-css-mode
+(add-to-list 'load-path "~/.emacs.d/less-css-mode")
+(setq css-indent-offset 2)
+(require 'less-css-mode)
