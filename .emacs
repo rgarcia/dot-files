@@ -77,8 +77,13 @@
 ;;(require 'drill-instructor)
 ;;(setq drill-instructor-global t)
 
+;; indentation for different file types
 (setq js-indent-level 2)
 (setq-default indent-tabs-mode nil)
+(add-hook 'python-mode-hook
+      (lambda ()
+        (setq tab-width 2)
+        (setq python-indent 2)))
 
 ;; coffee-mode: https://github.com/defunkt/coffee-mode
 (add-to-list 'load-path "~/.emacs.d/coffee-mode")
