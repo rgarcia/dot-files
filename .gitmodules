@@ -4,3 +4,6 @@
 [submodule ".emacs.d/less-css-mode"]
 	path = .emacs.d/less-css-mode
 	url = git://github.com/purcell/less-css-mode.git
+[submodule ".emacs.d/jade-mode"]
+	path = .emacs.d/jade-mode
+	url = https://github.com/brianc/jade-mode.git

@@ -95,3 +95,13 @@
 (add-to-list 'load-path "~/.emacs.d/less-css-mode")
 (setq css-indent-offset 2)
 (require 'less-css-mode)
+
+;; use js mode for json
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+
+;; jade html templates
+(add-to-list 'load-path "~/.emacs.d/jade-mode")
+(require 'sws-mode)
+(require 'jade-mode)    
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
