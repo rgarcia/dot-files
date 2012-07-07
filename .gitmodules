@@ -7,3 +7,6 @@
 [submodule ".emacs.d/jade-mode"]
 	path = .emacs.d/jade-mode
 	url = https://github.com/brianc/jade-mode.git
+[submodule ".emacs.d/clojure-mode"]
+	path = .emacs.d/clojure-mode
+	url = git://github.com/technomancy/clojure-mode.git

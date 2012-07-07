@@ -16,7 +16,6 @@
 (color-theme-billw)
 
 ;; GUIs are for b*tches
-(tool-bar-mode 0)
 (menu-bar-mode nil)
 (scroll-bar-mode nil)
 
@@ -113,3 +112,7 @@
 
 ;; longlines mode for markdown files
 (add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
+
+;; clojure
+(add-to-list 'load-path "~/.emacs.d/clojure-mode")
+(require 'clojure-mode)
