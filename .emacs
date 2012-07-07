@@ -110,3 +110,6 @@
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+;; longlines mode for markdown files
+(add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
