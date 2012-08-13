@@ -57,7 +57,7 @@
 
 ;; say no to unecessary whitespace
 (require 'whitespace)
-(setq whitespace-line-column 100
+(setq whitespace-line-column 80
       whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
 
