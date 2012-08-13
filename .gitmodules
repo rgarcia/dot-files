@@ -1,6 +1,3 @@
-[submodule ".emacs.d/coffee-mode"]
-	path = .emacs.d/coffee-mode
-	url = git://github.com/defunkt/coffee-mode.git
 [submodule ".emacs.d/less-css-mode"]
 	path = .emacs.d/less-css-mode
 	url = git://github.com/purcell/less-css-mode.git
