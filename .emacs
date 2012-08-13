@@ -78,11 +78,7 @@
 (require 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
-(defun coffee-custom ()
-  "coffee-mode-hook"
- (set (make-local-variable 'tab-width) 2))
-(add-hook 'coffee-mode-hook
-  '(lambda() (coffee-custom)))
+(setq coffee-tab-width 2)
 
 ;; less css mode: https://github.com/purcell/less-css-mode
 (add-to-list 'load-path "~/.emacs.d/less-css-mode")
@@ -99,7 +95,7 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-;; longlines mode for markdown files
+;; Longlines mode for markdown files
 (add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
 
 ;; clojure
