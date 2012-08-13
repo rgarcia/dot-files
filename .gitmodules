@@ -13,3 +13,6 @@
 [submodule ".emacs.d/coffee-mode"]
 	path = .emacs.d/coffee-mode
 	url = https://github.com/azylman/coffee-mode
+[submodule ".emacs.d/emacs-color-theme-solarized"]
+	path = .emacs.d/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git

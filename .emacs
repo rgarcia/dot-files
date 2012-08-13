@@ -9,18 +9,14 @@
 ;; default to better frame titles
 (setq frame-title-format (concat  "%b - emacs@" system-name))
 
-;; color theme: http://download.gna.org/color-theme/color-theme-6.6.0.tar.gz
-(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-billw)
+;; color theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(load-theme 'solarized-light t)
 
 ;; GUIs are for b*tches
-(menu-bar-mode nil)
-;;(scroll-bar-mode nil)
-
-;; select with shift+arrows
-(pc-selection-mode)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; custom key bindings
 (global-set-key [\C-tab] 'other-window)
@@ -32,6 +28,7 @@
 (global-set-key "\C-c\C-x" 'uncomment-region)
 (global-set-key "\M-q" 'query-replace)
 (global-set-key "\M-1" 'revert-buffer)
+(global-set-key [\C-escape] 'electric-buffer-list)
 
 ;; scroll line by line
 (setq scroll-step 1)
@@ -48,18 +45,9 @@
 ;; Parenthesis matching
 (show-paren-mode 1)
 
-;; disable welcome message
-(setq inhibit-startup-message t)
-(setq inhibit-startup-echo-area-message t)
-(setq initial-scratch-message nil)
-
 ;; compilation stuff
 (setq compilation-scroll-output 1)   ;; automatically scroll the compilation window
 (setq compilation-window-height 10)
-
-;; emacs and the clipboard should play nice
-(setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 ;; inconsolata font (this sometimes doesn't work...)
 (set-default-font "Inconsolata-14")
@@ -69,7 +57,8 @@
 
 ;; say no to unecessary whitespace
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
+(setq whitespace-line-column 100
+      whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
 
 ;; if you want to be really hardcore
@@ -106,7 +95,7 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-;; longlines mode for markdown files
+;; Longlines mode for markdown files
 (add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
 
 ;; clojure
