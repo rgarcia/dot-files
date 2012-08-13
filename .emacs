@@ -45,6 +45,11 @@
 ;; Parenthesis matching
 (show-paren-mode 1)
 
+;; disable welcome mode
+(setq inhibit-startup-message t)
+(setq inhibit-startup-echo-area-message t)
+(setq initial-scratch-message nil)
+
 ;; compilation stuff
 (setq compilation-scroll-output 1)   ;; automatically scroll the compilation window
 (setq compilation-window-height 10)
