@@ -13,3 +13,6 @@
 [submodule ".emacs.d/php-mode"]
 	path = .emacs.d/php-mode
 	url = https://github.com/ejmr/php-mode
+[submodule ".emacs.d/emacs-color-theme-solarized"]
+	path = .emacs.d/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
