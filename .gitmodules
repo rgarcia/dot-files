@@ -10,3 +10,6 @@
 [submodule ".emacs.d/php-mode"]
 	path = .emacs.d/php-mode
 	url = https://github.com/ejmr/php-mode
+[submodule ".emacs.d/coffee-mode"]
+	path = .emacs.d/coffee-mode
+	url = https://github.com/azylman/coffee-mode

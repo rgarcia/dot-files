@@ -17,7 +17,7 @@
 
 ;; GUIs are for b*tches
 (menu-bar-mode nil)
-(scroll-bar-mode nil)
+;;(scroll-bar-mode nil)
 
 ;; select with shift+arrows
 (pc-selection-mode)
@@ -87,13 +87,9 @@
 ;; coffee-mode: https://github.com/defunkt/coffee-mode
 (add-to-list 'load-path "~/.emacs.d/coffee-mode")
 (require 'coffee-mode)
+(setq coffee-tab-width 2)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
-(defun coffee-custom ()
-  "coffee-mode-hook"
- (set (make-local-variable 'tab-width) 2))
-(add-hook 'coffee-mode-hook
-  '(lambda() (coffee-custom)))
 
 ;; less css mode: https://github.com/purcell/less-css-mode
 (add-to-list 'load-path "~/.emacs.d/less-css-mode")
@@ -106,7 +102,7 @@
 ;; jade html templates
 (add-to-list 'load-path "~/.emacs.d/jade-mode")
 (require 'sws-mode)
-(require 'jade-mode)    
+(require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
