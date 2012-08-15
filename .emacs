@@ -6,6 +6,9 @@
 ;; enable visual feedback on selections
 (setq transient-mark-mode t)
 
+;; 
+(delete-selection-mode 1)
+
 ;; default to better frame titles
 (setq frame-title-format (concat  "%b - emacs@" system-name))
 
@@ -110,3 +113,12 @@
 ;; php
 (add-to-list 'load-path "~/.emacs.d/php-mode")
 (require 'php-mode)
+
+;; holy shit: http://emacs.wordpress.com/2007/01/17/eval-and-replace-anywhere/
+(defun fc-eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (prin1 (eval (read (current-kill 0)))
+         (current-buffer)))
+(global-set-key (kbd "C-c e") 'fc-eval-and-replace)
