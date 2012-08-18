@@ -122,3 +122,15 @@
   (prin1 (eval (read (current-kill 0)))
          (current-buffer)))
 (global-set-key (kbd "C-c e") 'fc-eval-and-replace)
+
+;; ace-jump-mode https://github.com/winterTTr/ace-jump-mode
+;; word jump C-c spc 
+;; char jump C-u C-c spc
+;; line jump C-u C-u C-c spc
+(add-to-list 'load-path "~/.emacs.d/ace-jump-mode")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
