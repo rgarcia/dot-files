@@ -162,3 +162,4 @@
 ;; magit: https://github.com/magit/magit
 ;; make EMACS=/usr/local/Cellar/emacs/24.1/bin/emacs
 (require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
