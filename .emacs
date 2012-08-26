@@ -158,3 +158,7 @@
           (jump-to-register ?u))))
   (my-iswitchb-close))
 (define-key global-map (kbd "C-|") 'toggle-windows-split)
+
+;; magit: https://github.com/magit/magit
+;; make EMACS=/usr/local/Cellar/emacs/24.1/bin/emacs
+(require 'magit)
