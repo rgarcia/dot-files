@@ -3,10 +3,10 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 # Resize Bindings
-bind right:shift;alt   resize +5% +0
-bind left:shift;alt    resize -5% +0
-bind up:shift;alt      resize +0   -5%
-bind down:shift;alt    resize +0   +5%
+bind d:shift;cmd resize +5% +0
+bind a:shift;cmd resize -5% +0
+bind w:shift;cmd resize +0   -5%
+bind s:shift;cmd resize +0   +5%
 
 # Push Bindings
 bind m:ctrl;cmd      push left  bar-resize:screenSizeX
@@ -16,10 +16,10 @@ bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
 bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
 
 # Nudge Bindings
-bind right:ctrl;alt nudge +5% +0
-bind left:ctrl;alt  nudge -5% +0
-bind up:ctrl;alt    nudge +0   -5%
-bind down:ctrl;alt  nudge +0   +5%
+bind d:ctrl;cmd nudge +5% +0
+bind a:ctrl;cmd nudge -5% +0
+bind w:ctrl;cmd nudge +0   -5%
+bind s:ctrl;cmd nudge +0   +5%
 
 # Throw Bindings
 bind 1:ctrl;alt         throw 0 resize
