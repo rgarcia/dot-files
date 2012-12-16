@@ -169,3 +169,9 @@
 (add-hook 'markdown-mode-hook (lambda () (longlines-mode 1)))
 ;;(add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
 (setq-default fill-column 95) ; fill up half of a split screen on laptop
+
+;; puppet mode
+(add-to-list 'load-path "~/.emacs.d/puppet-syntax-emacs")
+(require 'puppet-mode)
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
