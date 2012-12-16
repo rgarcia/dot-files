@@ -30,7 +30,7 @@
 (global-set-key "\C-c\C-c" 'comment-region)
 (global-set-key "\C-c\C-x" 'uncomment-region)
 (global-set-key "\M-q" 'query-replace)
-(global-set-key "\M-1" 'revert-buffer)
+(global-set-key "\M-r" 'revert-buffer)
 (global-set-key [\C-escape] 'electric-buffer-list)
 
 ;; scroll line by line
@@ -103,9 +103,6 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-;; Longlines mode for markdown files
-(add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
-
 ;; clojure
 (add-to-list 'load-path "~/.emacs.d/clojure-mode")
 (require 'clojure-mode)
@@ -163,3 +160,12 @@
 ;; make EMACS=/usr/local/Cellar/emacs/24.1/bin/emacs
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(add-to-list 'load-path "~/.emacs.d/markdown-mode")
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
+;; Longlines minor mode for markdown files
+(add-hook 'markdown-mode-hook (lambda () (longlines-mode 1)))
+;;(add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
+(setq-default fill-column 95) ; fill up half of a split screen on laptop
