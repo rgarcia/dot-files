@@ -25,3 +25,6 @@
 [submodule ".emacs.d/puppet-syntax-emacs"]
 	path = .emacs.d/puppet-syntax-emacs
 	url = git://github.com/puppetlabs/puppet-syntax-emacs.git
+[submodule ".emacs.d/yaml-mode"]
+	path = .emacs.d/yaml-mode
+	url = git://github.com/yoshiki/yaml-mode.git
