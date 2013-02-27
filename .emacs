@@ -1,3 +1,10 @@
+;; get marmalade packages in package.el
+(require 'package)
+(add-to-list 'package-archives 
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/")
 
 ;; font-lock mode enables syntax highlighting
@@ -6,14 +13,13 @@
 ;; enable visual feedback on selections
 (setq transient-mark-mode t)
 
-;; 
+;; hitting delete on marked text deletes the text
 (delete-selection-mode 1)
 
 ;; default to better frame titles
 (setq frame-title-format (concat  "%b - emacs@" system-name))
 
-;; color theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+;; solarized
 (load-theme 'solarized-dark t)
 
 ;; GUIs are for b*tches
@@ -33,7 +39,7 @@
 (global-set-key "\M-r" 'revert-buffer)
 (global-set-key [\C-escape] 'electric-buffer-list)
 
-;; scroll line by line
+;; scroll line by line instead of jumping
 (setq scroll-step 1)
 
 ;; show time
@@ -82,33 +88,28 @@
         (setq python-indent 2)))
 
 ;; coffee-mode: https://github.com/defunkt/coffee-mode
-(add-to-list 'load-path "~/.emacs.d/coffee-mode")
 (require 'coffee-mode)
 (setq coffee-tab-width 2)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
 ;; less css mode: https://github.com/purcell/less-css-mode
-(add-to-list 'load-path "~/.emacs.d/less-css-mode")
-(setq css-indent-offset 2)
 (require 'less-css-mode)
+(setq css-indent-offset 2)
 
 ;; use js mode for json
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;; jade html templates
-(add-to-list 'load-path "~/.emacs.d/jade-mode")
 (require 'sws-mode)
 (require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;; clojure
-(add-to-list 'load-path "~/.emacs.d/clojure-mode")
 (require 'clojure-mode)
 
 ;; php
-(add-to-list 'load-path "~/.emacs.d/php-mode")
 (require 'php-mode)
 
 ;; holy shit: http://emacs.wordpress.com/2007/01/17/eval-and-replace-anywhere/
@@ -124,7 +125,6 @@
 ;; word jump C-c spc 
 ;; char jump C-u C-c spc
 ;; line jump C-u C-u C-c spc
-(add-to-list 'load-path "~/.emacs.d/ace-jump-mode")
 (autoload
   'ace-jump-mode
   "ace-jump-mode"
@@ -171,9 +171,8 @@
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+(require 'magithub)
 
-
-(add-to-list 'load-path "~/.emacs.d/markdown-mode")
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
@@ -182,14 +181,12 @@
 ;;(add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
 (setq-default fill-column 95) ; fill up half of a split screen on laptop
 
-;; puppet mode
-(add-to-list 'load-path "~/.emacs.d/puppet-syntax-emacs")
-(require 'puppet-mode)
-(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
-(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
-
 ;; yaml-mode
 (add-to-list 'load-path "~/.emacs.d/yaml-mode")
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode))
+
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
