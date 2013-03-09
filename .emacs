@@ -125,6 +125,7 @@
 ;; word jump C-c spc 
 ;; char jump C-u C-c spc
 ;; line jump C-u C-u C-c spc
+(require 'ace-jump-mode)
 (autoload
   'ace-jump-mode
   "ace-jump-mode"
@@ -190,3 +191,8 @@
 ;; expand-region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; make sure M-x shell and M-x compile pick up normal environment
+(setq explicit-bash-args (list "--login" "-i"))
+(setq shell-file-name "bash")
+(setq shell-command-switch "--login")
