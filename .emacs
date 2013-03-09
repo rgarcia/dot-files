@@ -195,4 +195,12 @@
 ;; make sure M-x shell and M-x compile pick up normal environment
 (setq explicit-bash-args (list "--login" "-i"))
 (setq shell-file-name "bash")
-(setq shell-command-switch "--login")
+(setq shell-command-switch "-ilc")
+
+;; make sure colors show up in compilation buffer
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region (point-min) (point-max))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
