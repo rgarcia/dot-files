@@ -214,3 +214,6 @@ Don't mess with special buffers."
     (unless (or (eql buffer (current-buffer)) (not (buffer-file-name buffer)))
       (kill-buffer buffer))))
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
+
+;; fine
+(setq require-final-newline t)
