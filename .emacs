@@ -61,7 +61,7 @@
 
 ;; compilation stuff
 (setq compilation-scroll-output 1)   ;; automatically scroll the compilation window
-(setq compilation-window-height 10)
+(setq compilation-window-height 30)
 
 ;; inconsolata font (this sometimes doesn't work...)
 (set-default-font "Inconsolata-14")
@@ -75,6 +75,15 @@
       whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
 
+;; tabs are ok in go-mode
+(require 'go-mode-load)
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq tab-width 4)
+            (setq whitespace-style '(face empty lines-tail trailing))))
+
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook
 ;; if you want to be really hardcore
 ;;(require 'drill-instructor)
 ;;(setq drill-instructor-global t)
@@ -172,7 +181,6 @@
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-(require 'magithub)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
