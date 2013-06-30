@@ -173,6 +173,7 @@
     (define-key m ":" 'go-mode-insert-and-indent)
     (define-key m "=" 'go-mode-insert-and-indent)
     (define-key m (kbd "C-c C-a") 'go-import-add)
+    (define-key m (kbd "C-c C-u") 'go-remove-unused-imports)
     (define-key m (kbd "C-c C-j") 'godef-jump)
     (define-key m (kbd "C-c C-d") 'godef-describe)
     m)
@@ -875,7 +876,7 @@ description at POINT."
     (let ((outbuf (get-buffer-create "*godef*")))
       (with-current-buffer outbuf
         (erase-buffer))
-      (call-process-region (point-min) (point-max) "~/bin/godef" nil outbuf nil "-i" "-t" "-f" (file-truename buffer-file-name) "-o" (number-to-string (go--position-bytes (point))))
+      (call-process-region (point-min) (point-max) "~/go/bin/godef" nil outbuf nil "-i" "-t" "-f" (file-truename buffer-file-name) "-o" (number-to-string (go--position-bytes (point))))
       (with-current-buffer outbuf
         (split-string (buffer-substring-no-properties (point-min) (point-max)) "\n")))))
 

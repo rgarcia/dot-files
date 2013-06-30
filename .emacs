@@ -83,7 +83,6 @@
             (setq whitespace-style '(face empty lines-tail trailing))))
 
 (add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'go-mode-hook
 ;; if you want to be really hardcore
 ;;(require 'drill-instructor)
 ;;(setq drill-instructor-global t)
