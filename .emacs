@@ -64,7 +64,7 @@
 (setq compilation-window-height 30)
 
 ;; inconsolata font (this sometimes doesn't work...)
-(set-default-font "Inconsolata-14")
+(set-default-font "Inconsolata-15")
 
 ;; don't wrap long lines onto new lines
 (set-default 'truncate-lines t)
@@ -224,3 +224,9 @@ Don't mess with special buffers."
 
 ;; fine
 (setq require-final-newline t)
+
+;; go autocomplete https://github.com/nsf/gocode
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
