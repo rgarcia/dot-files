@@ -230,3 +230,6 @@ Don't mess with special buffers."
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
