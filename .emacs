@@ -203,10 +203,6 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode))
 
-;; expand-region
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
 ;; make sure M-x shell and M-x compile pick up normal environment
 (setq explicit-bash-args (list "--login" "-i"))
 (setq shell-file-name "bash")
