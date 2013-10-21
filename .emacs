@@ -1,9 +1,17 @@
-;; get marmalade packages in package.el
+;; use melpa for external pkgs
 (require 'package)
-(add-to-list 'package-archives 
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
+
+;; check if the packages is installed; if not, install it.
+(mapc
+ (lambda (package)
+   (or (package-installed-p package)
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package))))
+ '(magit solarized-theme go-mode coffee-mode markdown-mode less-css-mode jade-mode
+         ansi-color clojure-mode php-mode ace-jump-mode yaml-mode))
 
 (add-to-list 'load-path "~/.emacs.d/")
 
