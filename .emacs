@@ -237,3 +237,6 @@ Don't mess with special buffers."
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+;; save mini buffer history
+(savehist-mode 1)
