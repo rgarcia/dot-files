@@ -226,14 +226,14 @@ Don't mess with special buffers."
       (kill-buffer buffer))))
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
 
-;; fine
+;; newline at end of file
 (setq require-final-newline t)
 
 ;; go autocomplete https://github.com/nsf/gocode
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
+;; (require 'go-autocomplete)
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;; (ac-config-default)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
