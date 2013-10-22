@@ -190,3 +190,25 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "fear2"; };
 };
+hilights = (
+  { text = "rgarcia_"; nick = "yes"; word = "yes"; },
+  { text = "rgarcia_!*@*"; nick = "yes"; word = "yes"; mask = "yes"; }
+);
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "NickServ";
+        tag = "freenode";
+      }
+    );
+  };
+  3 = { name = "hilight"; sticky = "yes"; };
+};
+mainwindows = {
+  1 = { first_line = "8"; lines = "46"; };
+  3 = { first_line = "1"; lines = "7"; };
+};
