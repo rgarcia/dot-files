@@ -212,3 +212,4 @@ mainwindows = {
   1 = { first_line = "8"; lines = "46"; };
   3 = { first_line = "1"; lines = "7"; };
 };
+ignores = ( { level = "JOINS PARTS QUITS"; } );
