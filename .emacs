@@ -11,7 +11,8 @@
        (if (y-or-n-p (format "Package %s is missing. Install it? " package))
            (package-install package))))
  '(magit solarized-theme go-mode coffee-mode markdown-mode less-css-mode jade-mode
-         ansi-color clojure-mode php-mode ace-jump-mode yaml-mode))
+         ansi-color clojure-mode php-mode ace-jump-mode yaml-mode exec-path-from-shell
+         thrift))
 
 (add-to-list 'load-path "~/.emacs.d/")
 
@@ -240,3 +241,6 @@ Don't mess with special buffers."
 
 ;; save mini buffer history
 (savehist-mode 1)
+
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
