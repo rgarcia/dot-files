@@ -92,9 +92,14 @@
             (setq whitespace-style '(face empty lines-tail trailing))))
 
 (add-hook 'before-save-hook 'gofmt-before-save)
-;; if you want to be really hardcore
-;;(require 'drill-instructor)
-;;(setq drill-instructor-global t)
+(require 'golint)
+(defun golint-before-save ()
+  "Add this to .emacs to run golint on the current buffer when saving:
+ (add-hook 'before-save-hook 'golint-before-save)."
+  (interactive)
+  (when (eq major-mode 'go-mode) (golint)))
+(add-hook 'before-save-hook 'golint-before-save)
+
 
 ;; indentation for different file types
 (setq js-indent-level 2)
