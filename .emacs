@@ -200,8 +200,9 @@
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 ;; Longlines minor mode for markdown files
 (add-hook 'markdown-mode-hook (lambda () (longlines-mode 1)))
-;;(add-to-list 'auto-mode-alist '("\\.md$" . longlines-mode))
-(setq-default fill-column 95) ; fill up half of a split screen on laptop
+
+;; in longlines mode, wrap at window width
+(setq longlines-wrap-follows-window-size t)
 
 ;; yaml-mode
 (add-to-list 'load-path "~/.emacs.d/yaml-mode")
