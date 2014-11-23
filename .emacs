@@ -12,7 +12,7 @@
            (package-install package))))
  '(magit solarized-theme go-mode coffee-mode markdown-mode less-css-mode jade-mode
          ansi-color clojure-mode php-mode ace-jump-mode yaml-mode exec-path-from-shell
-         thrift))
+         thrift dockerfile-mode))
 
 (add-to-list 'load-path "~/.emacs.d/")
 
@@ -84,30 +84,30 @@
       whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
 
-;; tabs are ok in go-mode
-(require 'go-mode-load)
-(add-hook 'go-mode-hook
-          (lambda ()
-            (setq tab-width 4)
-            (setq whitespace-style '(face empty lines-tail trailing))))
-
-(add-hook 'before-save-hook 'gofmt-before-save)
-(require 'golint)
-(defun golint-before-save ()
-  "Add this to .emacs to run golint on the current buffer when saving:
- (add-hook 'before-save-hook 'golint-before-save)."
-  (interactive)
-  (when (eq major-mode 'go-mode) (golint)))
-(add-hook 'before-save-hook 'golint-before-save)
-
+(require 'go-mode)
+(load-file "~/.emacs.d/oracle.el")
+(if (eq system-type 'darwin)
+    (setenv "GOPATH" "/Users/rgarcia/go")
+    (setenv "GOPATH" "/home/rgarcia/go")
+)
+(defun my-go-mode-hook ()
+  ; smaller tab width
+  (setq tab-width 4)
+  ; Use goimports instead of go-fmt
+  (setq gofmt-command "~/go/bin/goimports")
+  ; go oracle: https://tleyden.github.io/blog/2014/05/27/configure-emacs-as-a-go-editor-from-scratch-part-2/
+  (go-oracle-mode)
+  ; Call Gofmt before saving
+  (add-hook 'before-save-hook 'gofmt-before-save))
+(add-hook 'go-mode-hook 'my-go-mode-hook)
 
 ;; indentation for different file types
 (setq js-indent-level 2)
 (setq-default indent-tabs-mode nil)
 (add-hook 'python-mode-hook
       (lambda ()
-        (setq tab-width 2)
-        (setq python-indent 2)))
+        (setq tab-width 4)
+        (setq python-indent 4)))
 
 ;; coffee-mode: https://github.com/defunkt/coffee-mode
 (require 'coffee-mode)
@@ -213,7 +213,7 @@
 ;; make sure M-x shell and M-x compile pick up normal environment
 (setq explicit-bash-args (list "--login" "-i"))
 (setq shell-file-name "bash")
-(setq shell-command-switch "-ilc")
+;;(setq shell-command-switch "-ilc")
 
 ;; make sure colors show up in compilation buffer
 (require 'ansi-color)
@@ -235,12 +235,6 @@ Don't mess with special buffers."
 
 ;; newline at end of file
 (setq require-final-newline t)
-
-;; go autocomplete https://github.com/nsf/gocode
-;; (require 'go-autocomplete)
-;; (require 'auto-complete-config)
-;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-;; (ac-config-default)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
