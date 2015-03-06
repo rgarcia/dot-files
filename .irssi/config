@@ -14,6 +14,7 @@ chatnets = { freenode = { type = "IRC"; nick = "rgarcia_"; }; };
 
 channels = (
   { name = "#getclever"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#cleverdevs"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#salt"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#serfdom"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#docker"; chatnet = "freenode"; autojoin = "Yes"; },
