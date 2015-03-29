@@ -10,11 +10,9 @@
    (or (package-installed-p package)
        (if (y-or-n-p (format "Package %s is missing. Install it? " package))
            (package-install package))))
- '(magit solarized-theme go-mode coffee-mode markdown-mode less-css-mode jade-mode
+ '(magit solarized-theme go-mode coffee-mode markdown-mode less-css-mode sws-mode jade-mode
          ansi-color clojure-mode php-mode ace-jump-mode yaml-mode exec-path-from-shell
          thrift dockerfile-mode))
-
-(add-to-list 'load-path "~/.emacs.d/")
 
 ;; font-lock mode enables syntax highlighting
 (global-font-lock-mode 1)
