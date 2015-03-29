@@ -85,7 +85,6 @@
 (global-whitespace-mode t)
 
 (require 'go-mode)
-(load-file "~/.emacs.d/oracle.el")
 (if (eq system-type 'darwin)
     (setenv "GOPATH" "/Users/rgarcia/go")
     (setenv "GOPATH" "/home/rgarcia/go")
@@ -95,8 +94,6 @@
   (setq tab-width 4)
   ; Use goimports instead of go-fmt
   (setq gofmt-command "~/go/bin/goimports")
-  ; go oracle: https://tleyden.github.io/blog/2014/05/27/configure-emacs-as-a-go-editor-from-scratch-part-2/
-  (go-oracle-mode)
   ; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
