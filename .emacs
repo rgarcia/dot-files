@@ -12,7 +12,7 @@
            (package-install package))))
  '(magit solarized-theme go-mode coffee-mode markdown-mode less-css-mode sws-mode jade-mode
          ansi-color clojure-mode php-mode ace-jump-mode yaml-mode exec-path-from-shell
-         thrift dockerfile-mode vagrant-tramp))
+         thrift dockerfile-mode))
 
 ;; font-lock mode enables syntax highlighting
 (global-font-lock-mode 1)
@@ -239,6 +239,3 @@ Don't mess with special buffers."
 
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
-
-(eval-after-load 'tramp
-  '(vagrant-tramp-enable))
